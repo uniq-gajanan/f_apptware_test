@@ -23,7 +23,7 @@ class PostDAO {
   Future<List<PostResponseModel>?> getPost(int offSet)async{
     try{
       final db = await _db;
-      var result = await db.rawQuery("SELECT * from $tableName");
+      var result = await db.rawQuery("SELECT * from $tableName LIMIT ? OFFSET ?",[15,15*offSet]);
       if(result.isNotEmpty){
         return List.generate(result.length, (index) => PostResponseModel.fromJson(result[index]));
       }

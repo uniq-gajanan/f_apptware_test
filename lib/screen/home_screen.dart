@@ -28,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _scrollController.addListener(() {
       if (_scrollController.position.maxScrollExtent ==
           _scrollController.position.pixels) {
-        debugPrint("scroll is $offSet");
         offSet++;
         setState((){
           isLoading = true;
